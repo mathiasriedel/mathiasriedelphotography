@@ -11,14 +11,13 @@
 
   <link href="gallery.css" rel="stylesheet">
   <script>
-    window.addEventListener("load", function() {
-      function myFunction(x) {
-        x.classList.toggle("change");
+    function myFunction(x) {
+      x.classList.toggle("change");
   
-        document.getElementById("sidebar").classList.toggle("openBar");
-        document.getElementById("content").classList.toggle("openBar");
-      }
-      
+      document.getElementById("sidebar").classList.toggle("openBar");
+      document.getElementById("content").classList.toggle("openBar");
+    }
+    window.addEventListener("load", function() {      
       var images = document.getElementsByTagName("img");
       for(var i = 1; i < images.length; i++) {
         images[i].addEventListener("click", (e) => {
