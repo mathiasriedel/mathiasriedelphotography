@@ -1,0 +1,188 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 10px;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 200;
+    margin-bottom: -20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+#portfolio {
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(300px, auto);
+}
+
+.image-container {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-container.canada {
+    grid-column: 2/3;
+    grid-row: 1/1;
+}
+
+.image-container.germany {
+    grid-column: 3/4;
+    grid-row: 1/1;
+}
+
+.image-container.iceland {
+    grid-column: 2/3;
+    grid-row: 2/2;
+}
+
+.image-container.austria {
+    grid-column: 3/4;
+    grid-row: 2/2;
+}
+
+.image-container.madeira {
+    grid-column: 2/3;
+    grid-row: 3/3;
+}
+
+.image-container.croatia {
+    grid-column: 3/4;
+    grid-row: 3/3;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.content-details {
+    z-index: 20;
+    position: absolute;
+    text-align: center;
+    padding: 0 1rem;
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    font-size: 2rem;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+.image-container:hover .content-details{
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+@media screen and (max-width: 780px) {
+    #portfolio {
+        margin-top: 50px;
+        display: block;
+    }
+    
+    .image-container {
+        margin: 0 16px 16px;
+        text-align: center;
+    }
+
+    .content-details, .content-details:hover {
+        display: none;
+    }
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+#copyright {
+    flex: 33%;
+    width: 33%;
+    margin: 50px 0;
+    text-align: center;
+}
+
+#impressum {
+    flex: 33%;
+    width: 33%;
+    margin: 50px 0;
+    text-align: right;
+}
+
+#instagram {
+    flex: 33%;
+    width: 33%;
+    margin: 50px 0;
+    text-align: left;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.impressum {
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.impressum h1 {
+    margin-bottom: 20px;
+}
+
+.impressum a {
+    margin-top: 20px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}

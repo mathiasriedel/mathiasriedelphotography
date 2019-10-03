@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mathias Riedel Photography</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans&display=swap" rel="stylesheet">
+
+  <link href="gallery.css" rel="stylesheet">
+  <script>
+    window.addEventListener("load", function() {
+      function myFunction(x) {
+        x.classList.toggle("change");
+  
+        document.getElementById("sidebar").classList.toggle("openBar");
+        document.getElementById("content").classList.toggle("openBar");
+      }
+      
+      var images = document.getElementsByTagName("img");
+      for(var i = 1; i < images.length; i++) {
+        images[i].addEventListener("click", (e) => {
+          if (window.innerWidth > 800) {
+          document.getElementById("page-overlay").style.display = "block";
+          document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src;
+          document.getElementById("page-overlay").addEventListener("click", function() {
+            document.getElementById("page-overlay").style.display = "none";
+          });}
+        });
+      }
+    });
+    </script>
+  </head>
+  
+  <body>
+    <div class="container" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div id="page-overlay">
+      <img src="">
+    </div>
+  <div id="sidebar">
+    <div id="menu">
+      <a href="index.html">Mathias Riedel Photography</a>
+      <ul>
+        <li><a href="austria.html">Austria</a></li>
+        <li><a href="canada.html">Canada</a></li>
+        <li><a href="croatia.html">Croatia</a></li>
+        <li><a href="#" style="color: black; font-style: italic;">Germany</a></li>
+        <li><a href="iceland.html">Iceland</a></li>
+        <li><a href="madeira.html">Madeira</a></li>
+      </ul>
+      <footer>
+        <div id="instagram">📸 <a href="https://instagram.com/mathiasriedelphotography">Instagram</a></div>
+        <div id="impressum"><a href="impressum.html">Impressum</a></div>
+        <div id="copyright">&copy;2019, Mathias Riedel</div>
+      </footer>
+    </div>
+  </div>
+  <div id="content">
+    <div class="row">
+      <div class="column">
+        <img src="assets/germany/(13).jpg" alt="">
+        <img src="assets/germany/(14).jpg" alt="">
+        <img src="assets/germany/(1).jpg" alt="">
+        <img src="assets/germany/(2).jpg" alt="">
+        <img src="assets/germany/(4).jpg" alt="">
+        <img src="assets/germany/(22).jpg" alt="">
+        <img src="assets/germany/(23).jpg" alt="">
+        <img src="assets/germany/(24).jpg" alt="">
+        <img src="assets/germany/(26).jpg" alt="">
+        <img src="assets/germany/(27).jpg" alt="">
+      </div>
+      <div class="column">
+        <img src="assets/germany/(5).jpg" alt="">
+        <img src="assets/germany/(11).jpg" alt="">
+        <img src="assets/germany/(8).jpg" alt="">
+        <img src="assets/germany/(9).jpg" alt="">
+        <img src="assets/germany/(10).jpg" alt="">
+        <img src="assets/germany/(28).jpg" alt="">
+        <img src="assets/germany/(25).jpg" alt="">
+        <img src="assets/germany/(29).jpg" alt="">
+        <img src="assets/germany/(30).jpg" alt="">
+        <img src="assets/germany/(31).jpg" alt="">
+        <img src="assets/germany/(32).jpg" alt="">
+        <img src="assets/germany/(33).jpg" alt="">
+      </div>
+      <div class="column">
+        <img src="assets/germany/(3).jpg" alt="">
+        <img src="assets/germany/(15).jpg" alt="">
+        <img src="assets/germany/(16).jpg" alt="">
+        <img src="assets/germany/(17).jpg" alt="">
+        <img src="assets/germany/(12).jpg" alt="">
+        <img src="assets/germany/(18).jpg" alt="">
+        <img src="assets/germany/(19).jpg" alt="">
+        <img src="assets/germany/(20).jpg" alt="">
+        <img src="assets/germany/(6).jpg" alt="">
+        <img src="assets/germany/(7).jpg" alt="">
+        <img src="assets/germany/(21).jpg" alt="">
+        <img src="assets/germany/(34).jpg" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
