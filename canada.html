@@ -13,36 +13,95 @@
   <script>
     function myFunction(x) {
       x.classList.toggle("change");
-  
       document.getElementById("sidebar").classList.toggle("openBar");
-      document.getElementById("content").classList.toggle("openBar");
+      document.getElementById("photos").classList.toggle("openBar");
     }
-    window.addEventListener("load", function() {      
+    window.addEventListener("load", function () {
+      var photos = [
+        { path: "assets\\canada\\(1).jpg", width: 514, height: 519 },
+        { path: "assets\\canada\\(10).jpg", width: 344, height: 515 },
+        { path: "assets\\canada\\(11).jpg", width: 431, height: 404 },
+        { path: "assets\\canada\\(12).jpg", width: 648, height: 432 },
+        { path: "assets\\canada\\(13).jpg", width: 413, height: 585 },
+        { path: "assets\\canada\\(14).jpg", width: 518, height: 346 },
+        { path: "assets\\canada\\(15).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(16).jpg", width: 648, height: 432 },
+        { path: "assets\\canada\\(17).jpg", width: 939, height: 509 },
+        { path: "assets\\canada\\(18).jpg", width: 1219, height: 520 },
+        { path: "assets\\canada\\(19).jpg", width: 648, height: 432 },
+        { path: "assets\\canada\\(2).jpg", width: 325, height: 477 },
+        { path: "assets\\canada\\(20).jpg", width: 1147, height: 378 },
+        { path: "assets\\canada\\(21).jpg", width: 781, height: 478 },
+        { path: "assets\\canada\\(22).jpg", width: 400, height: 600 },
+        { path: "assets\\canada\\(23).jpg", width: 615, height: 337 },
+        { path: "assets\\canada\\(24).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(25).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(26).jpg", width: 648, height: 432 },
+        { path: "assets\\canada\\(27).jpg", width: 622, height: 432 },
+        { path: "assets\\canada\\(28).jpg", width: 518, height: 346 },
+        { path: "assets\\canada\\(29).jpg", width: 518, height: 346 },
+        { path: "assets\\canada\\(3).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(30).jpg", width: 458, height: 317 },
+        { path: "assets\\canada\\(4).jpg", width: 337, height: 505 },
+        { path: "assets\\canada\\(5).jpg", width: 420, height: 630 },
+        { path: "assets\\canada\\(6).jpg", width: 675, height: 414 },
+        { path: "assets\\canada\\(7).jpg", width: 480, height: 320 },
+        { path: "assets\\canada\\(8).jpg", width: 393, height: 610 },
+        { path: "assets\\canada\\(9).jpg", width: 432, height: 648 },
+      ];
+      let rows = [];
+      let row = [];
+      let currentWidth = 0;
+      photos.forEach(photo => {
+        row.push(photo);
+        currentWidth += Math.round((300 / photo.height) * photo.width);
+        currentWidth += 10;
+        if (currentWidth >= window.innerWidth * 0.8) {
+          row.currentWidth = currentWidth;
+          rows.push(row);
+          row = [];
+          currentWidth = 0;
+        }
+      });
+      rows.forEach(row => {
+        let rowWidth = row.currentWidth;
+        row.forEach(photo => {
+          img = document.createElement('img');
+          img.src = photo.path;
+          img.draggable = false;
+          if (window.innerWidth >= 800) {
+            let ratio = window.innerWidth * 0.8 / rowWidth;
+            img.height = 300 * ratio - 5;
+          }
+          document.getElementById('photos').appendChild(img);
+        });
+      });
       var images = document.getElementsByTagName("img");
-      for(var i = 1; i < images.length; i++) {
+      for (var i = 1; i < images.length; i++) {
         images[i].addEventListener("click", (e) => {
           if (window.innerWidth > 800) {
-          document.getElementById("page-overlay").style.display = "block";
-          document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src;
-          document.getElementById("page-overlay").addEventListener("click", function() {
-            document.getElementById("page-overlay").style.display = "none";
-          });}
+            document.getElementById("page-overlay").style.display = "block";
+            document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src;
+            document.getElementById("page-overlay").addEventListener("click", function () {
+              document.getElementById("page-overlay").style.display = "none";
+            });
+          }
         });
       }
     });
-    </script>
-  </head>
-  
-  <body>
-    <div class="container" onclick="myFunction(this)">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
-    <div id="page-overlay">
-      <img src="" oncontextmenu="return false">
-    </div>
-  <div id="sidebar">
+  </script>
+</head>
+
+<body>
+  <div class="container" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div id="page-overlay">
+    <img src="" oncontextmenu="return false" draggable="false">
+  </div>
+  <section id="sidebar">
     <div id="menu">
       <a href="index.html">Mathias Riedel Photography</a>
       <ul>
@@ -54,53 +113,15 @@
         <li><a href="madeira.html">Madeira</a></li>
       </ul>
       <footer>
-        <div id="instagram">📸 <a href="https://instagram.com/mathiasriedelphotography">Instagram</a></div>
-        <div id="impressum"><a href="impressum.html">Impressum</a></div>
-        <div id="copyright">&copy;2019, Mathias Riedel</div>
+        <span id="copyright">&copy;2019, Mathias Riedel</span><br>
+        <span id="impressum"><a href="impressum.html">Impressum</a></span><br>
+        <span id="instagram"><a href="https://instagram.com/mathiasriedelphotography">Instagram</a></span>
       </footer>
     </div>
-  </div>
-  <div id="content" oncontextmenu="return false">
-    <div class="row">
-      <div class="column">
-        <img src="assets/canada/(13).jpg" alt="">
-        <img src="assets/canada/(20).jpg" alt="">
-        <img src="assets/canada/(23).jpg" alt="">
-        <img src="assets/canada/(26).jpg" alt="">
-        <img src="assets/canada/(21).jpg" alt="">
-        <img src="assets/canada/(14).jpg" alt="">
-        <img src="assets/canada/(1).jpg" alt="">
-        <img src="assets/canada/(24).jpg" alt="">
-        <img src="assets/canada/(4).jpg" alt="">
-        <img src="assets/canada/(28).jpg" alt="">
-        <img src="assets/canada/(27).jpg" alt="">
-        <img src="assets/canada/(29).jpg" alt="">
-      </div>
-      <div class="column">
-        <img src="assets/canada/(2).jpg" alt="">
-        <img src="assets/canada/(22).jpg" alt="">
-        <img src="assets/canada/(5).jpg" alt="">
-        <img src="assets/canada/(11).jpg" alt="">
-        <img src="assets/canada/(8).jpg" alt="">
-        <img src="assets/canada/(9).jpg" alt="">
-        <img src="assets/canada/(10).jpg" alt="">
-        <img src="assets/canada/(30).jpg" alt="">
-      </div>
-      <div class="column">
-        <img src="assets/canada/(3).jpg" alt="">
-        <img src="assets/canada/(15).jpg" alt="">
-        <img src="assets/canada/(16).jpg" alt="">
-        <img src="assets/canada/(25).jpg" alt="">
-        <img src="assets/canada/(27).jpg" alt="">
-        <img src="assets/canada/(17).jpg" alt="">
-        <img src="assets/canada/(12).jpg" alt="">
-        <img src="assets/canada/(18).jpg" alt="">
-        <img src="assets/canada/(19).jpg" alt="">
-        <img src="assets/canada/(6).jpg" alt="">
-        <img src="assets/canada/(7).jpg" alt="">
-      </div>
-    </div>
-  </div>
+  </section>
+  <section id="photos" oncontextmenu="return false">
+    
+  </section>
 </body>
 
 </html>
