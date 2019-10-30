@@ -21,7 +21,7 @@
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
       if (number == 30) { number = 1; }
-      else { number -= 1; }
+      else { number += 1; }
       document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\(" + number + ").jpg";
       event.stopPropagation();
     }
