@@ -15,14 +15,14 @@
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
       if (number == 1) { number = 30; }
       else { number -= 1; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\(" + number + ").jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
       if (number == 30) { number = 1; }
       else { number ++; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\(" + number + ").jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function myFunction(x) {
@@ -43,6 +43,14 @@
       }
       var photos = [
         { path: "assets\\canada\\(1).jpg", width: 514, height: 519 },
+        { path: "assets\\canada\\(2).jpg", width: 325, height: 477 },
+        { path: "assets\\canada\\(3).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(4).jpg", width: 337, height: 505 },
+        { path: "assets\\canada\\(5).jpg", width: 420, height: 630 },
+        { path: "assets\\canada\\(6).jpg", width: 675, height: 414 },
+        { path: "assets\\canada\\(7).jpg", width: 480, height: 320 },
+        { path: "assets\\canada\\(8).jpg", width: 393, height: 610 },
+        { path: "assets\\canada\\(9).jpg", width: 432, height: 648 },
         { path: "assets\\canada\\(10).jpg", width: 344, height: 515 },
         { path: "assets\\canada\\(11).jpg", width: 431, height: 404 },
         { path: "assets\\canada\\(12).jpg", width: 648, height: 432 },
@@ -53,7 +61,6 @@
         { path: "assets\\canada\\(17).jpg", width: 939, height: 509 },
         { path: "assets\\canada\\(18).jpg", width: 1219, height: 520 },
         { path: "assets\\canada\\(19).jpg", width: 648, height: 432 },
-        { path: "assets\\canada\\(2).jpg", width: 325, height: 477 },
         { path: "assets\\canada\\(20).jpg", width: 1147, height: 378 },
         { path: "assets\\canada\\(21).jpg", width: 781, height: 478 },
         { path: "assets\\canada\\(22).jpg", width: 400, height: 600 },
@@ -64,14 +71,7 @@
         { path: "assets\\canada\\(27).jpg", width: 622, height: 432 },
         { path: "assets\\canada\\(28).jpg", width: 518, height: 346 },
         { path: "assets\\canada\\(29).jpg", width: 518, height: 346 },
-        { path: "assets\\canada\\(3).jpg", width: 432, height: 648 },
-        { path: "assets\\canada\\(30).jpg", width: 458, height: 317 },
-        { path: "assets\\canada\\(4).jpg", width: 337, height: 505 },
-        { path: "assets\\canada\\(5).jpg", width: 420, height: 630 },
-        { path: "assets\\canada\\(6).jpg", width: 675, height: 414 },
-        { path: "assets\\canada\\(7).jpg", width: 480, height: 320 },
-        { path: "assets\\canada\\(8).jpg", width: 393, height: 610 },
-        { path: "assets\\canada\\(9).jpg", width: 432, height: 648 },
+        { path: "assets\\canada\\(30).jpg", width: 458, height: 317 }
       ];
       let rows = [];
       let row = [];
@@ -95,7 +95,7 @@
           img.draggable = false;
           if (window.innerWidth >= 800) {
             let ratio = window.innerWidth * 0.8 / rowWidth;
-            img.height = 300 * ratio - 5;
+            img.height = 300 * ratio - 10;
           }
           document.getElementById('photos').appendChild(img);
         });
@@ -105,7 +105,7 @@
         images[i].addEventListener("click", (e) => {
           if (window.innerWidth > 800) {
             document.getElementById("page-overlay").style.display = "block";
-            document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src;
+            document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src.replace('.jpg', '_big.jpg');
             document.getElementById("page-overlay").addEventListener("click", function () {
               document.getElementById("page-overlay").style.display = "none";
             });

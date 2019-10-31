@@ -171,6 +171,7 @@ footer a {
     right: 0;
     bottom: 0;
     margin: auto;
+    max-height: 90%;
 }
 
 #photos img {
