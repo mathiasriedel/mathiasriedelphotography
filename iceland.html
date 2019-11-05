@@ -9,97 +9,133 @@
 
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans&display=swap" rel="stylesheet">
 
-  <link href="gallery_old.css" rel="stylesheet">
+  <link href="gallery.css" rel="stylesheet">
   <script>
+    function left() {
+      let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
+      if (number == 1) { number = 17; }
+      else { number -= 1; }
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\iceland\\(" + number + ")_big.jpg";
+      event.stopPropagation();
+    }
+    function right() {
+      let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
+      if (number == 17) { number = 1; }
+      else { number++; }
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\iceland\\(" + number + ")_big.jpg";
+      event.stopPropagation();
+    }
     function myFunction(x) {
       x.classList.toggle("change");
-  
       document.getElementById("sidebar").classList.toggle("openBar");
-      document.getElementById("content").classList.toggle("openBar");
+      document.getElementById("photos").classList.toggle("openBar");
     }
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
+      document.onkeydown = checkKey;
+      function checkKey(e) {
+        e = e || window.event;
+        if (e.keyCode == '37') {
+          left();
+        }
+        else if (e.keyCode == '39') {
+          right();
+        }
+      }
+      var photos = [
+        { path: "assets\\iceland\\(6).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(7).jpg", width: 3456, height: 5184 },
+        { path: "assets\\iceland\\(8).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(9).jpg", width: 5132, height: 3418 },
+        { path: "assets\\iceland\\(10).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(11).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(12).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(13).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(14).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(15).jpg", width: 3063, height: 4598 },
+        { path: "assets\\iceland\\(16).jpg", width: 4987, height: 3325 },
+        { path: "assets\\iceland\\(17).jpg", width: 3273, height: 4906 },
+        { path: "assets\\iceland\\(1).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(2).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(3).jpg", width: 4084, height: 2916 },
+        { path: "assets\\iceland\\(4).jpg", width: 5184, height: 3456 },
+        { path: "assets\\iceland\\(5).jpg", width: 5184, height: 3456 }
+      ];
+      let rows = [];
+      let row = [];
+      let currentWidth = 0;
+      photos.forEach(photo => {
+        row.push(photo);
+        currentWidth += Math.round((200 / photo.height) * photo.width);
+        currentWidth += 10;
+        if (currentWidth >= window.innerWidth * 0.8) {
+          row.currentWidth = currentWidth;
+          rows.push(row);
+          row = [];
+          currentWidth = 0;
+        }
+      });
+      rows.forEach(row => {
+        let rowWidth = row.currentWidth;
+        row.forEach(photo => {
+          img = document.createElement('img');
+          img.src = photo.path;
+          img.draggable = false;
+          if (window.innerWidth >= 800) {
+            let ratio = window.innerWidth * 0.8 / rowWidth;
+            img.height = 200 * ratio - 10;
+          }
+          document.getElementById('photos').appendChild(img);
+        });
+      });
       var images = document.getElementsByTagName("img");
-      for(var i = 1; i < images.length; i++) {
+      for (var i = 1; i < images.length; i++) {
         images[i].addEventListener("click", (e) => {
           if (window.innerWidth > 800) {
-          document.getElementById("page-overlay").style.display = "block";
-          document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src;
-          document.getElementById("page-overlay").addEventListener("click", function() {
-            document.getElementById("page-overlay").style.display = "none";
-          });}
+            document.getElementById("page-overlay").style.display = "block";
+            document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src.replace('.jpg', '_big.jpg');
+            document.getElementById("page-overlay").addEventListener("click", function () {
+              document.getElementById("page-overlay").style.display = "none";
+            });
+          }
         });
       }
     });
-    </script>
-  </head>
-  
-  <body>
-    <div class="container" onclick="myFunction(this)">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
-    <div id="page-overlay">
-      <img src="" oncontextmenu="return false">
-    </div>
-  <div id="sidebar">
+  </script>
+</head>
+
+<body>
+  <div class="container" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div id="page-overlay">
+    <div class="close"></div>
+    <div class="left-arrow" onclick="left()"></div>
+    <img src="" oncontextmenu="return false" draggable="false">
+    <div class="right-arrow" onclick="right()"></div>
+  </div>
+  <section id="sidebar">
     <div id="menu">
-      <a href="index.html">Mathias Riedel Photography</a>
+      <a href="index.html"><img src="assets/logo.png"></a>
       <ul>
         <li><a href="austria.html">Austria</a></li>
         <li><a href="canada.html">Canada</a></li>
-        <li><a href="croatia.html">Croatia</a></li>
+        <li><a href="favorites.html">Favorites 2018-19</a></li>
         <li><a href="germany.html">Germany</a></li>
         <li><a href="#" style="color: black; font-style: italic;">Iceland</a></li>
         <li><a href="madeira.html">Madeira</a></li>
       </ul>
       <footer>
-        <div id="instagram">📸 <a href="https://instagram.com/mathiasriedelphotography">Instagram</a></div>
-        <div id="impressum"><a href="impressum.html">Impressum</a></div>
-        <div id="copyright">&copy;2019, Mathias Riedel</div>
-    </footer>
+        <span id="copyright">&copy;2019, Mathias Riedel</span><br>
+        <span id="impressum"><a href="impressum.html">Impressum</a></span><br>
+        <span id="instagram"><a href="https://instagram.com/mathiasriedelphotography">Instagram</a></span>
+      </footer>
     </div>
-  </div>
-  <div id="content" oncontextmenu="return false">
-    <div class="row">
-      <div class="column">
-        <img src="assets/iceland/(13).jpg" alt="">
-        <img src="assets/iceland/(14).jpg" alt="">
-        <img src="assets/iceland/(1).jpg" alt="">
-        <img src="assets/iceland/(2).jpg" alt="">
-        <img src="assets/iceland/(4).jpg" alt="">
-        <img src="assets/iceland/(22).jpg" alt="">
-        <img src="assets/iceland/(23).jpg" alt="">
-        <img src="assets/iceland/(24).jpg" alt="">
-        <img src="assets/iceland/(26).jpg" alt="">
-      </div>
-      <div class="column">
-        <img src="assets/iceland/(5).jpg" alt="">
-        <img src="assets/iceland/(11).jpg" alt="">
-        <img src="assets/iceland/(8).jpg" alt="">
-        <img src="assets/iceland/(9).jpg" alt="">
-        <img src="assets/iceland/(10).jpg" alt="">
-        <img src="assets/iceland/(28).jpg" alt="">
-        <img src="assets/iceland/(25).jpg" alt="">
-        <img src="assets/iceland/(29).jpg" alt="">
-        <img src="assets/iceland/(30).jpg" alt="">
-        <img src="assets/iceland/(27).jpg" alt="">
-      </div>
-      <div class="column">
-        <img src="assets/iceland/(3).jpg" alt="">
-        <img src="assets/iceland/(15).jpg" alt="">
-        <img src="assets/iceland/(16).jpg" alt="">
-        <img src="assets/iceland/(17).jpg" alt="">
-        <img src="assets/iceland/(12).jpg" alt="">
-        <img src="assets/iceland/(18).jpg" alt="">
-        <img src="assets/iceland/(19).jpg" alt="">
-        <img src="assets/iceland/(20).jpg" alt="">
-        <img src="assets/iceland/(6).jpg" alt="">
-        <img src="assets/iceland/(7).jpg" alt="">
-        <img src="assets/iceland/(21).jpg" alt="">
-      </div>
-    </div>
-  </div>
+  </section>
+  <section id="photos" oncontextmenu="return false">
+
+  </section>
 </body>
 
 </html>
