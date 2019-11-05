@@ -9,16 +9,9 @@ header {
     text-align: center;
 }
 
-h1 {
-    font-size: 6rem;
-    font-family: 'Great Vibes', cursive;
-    font-weight: 200;
-    margin-bottom: -20px;
-}
-
-h2 {
-    font-size: 2.5rem;
-    font-family: 'Open Sans', sans-serif;
+header img {
+    margin: 40px 0 0;
+    width: 400px;
 }
 
 #portfolio {
