@@ -15,14 +15,14 @@
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
       if (number == 1) { number = 29; }
       else { number -= 1; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\\(" + number + ")_big.jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\madeira\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
       if (number == 29) { number = 1; }
       else { number++; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\canada\\\(" + number + ")_big.jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\madeira\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function myFunction(x) {
