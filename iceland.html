@@ -42,30 +42,34 @@
         }
       }
       var photos = [
-        { path: "assets\\iceland\\(5).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(6).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(7).jpg", width: 3456, height: 5184 },
-        { path: "assets\\iceland\\(8).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(9).jpg", width: 5132, height: 3418 },
-        { path: "assets\\iceland\\(10).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(11).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(12).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(13).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(14).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(15).jpg", width: 3063, height: 4598 },
-        { path: "assets\\iceland\\(16).jpg", width: 4987, height: 3325 },
-        { path: "assets\\iceland\\(17).jpg", width: 3273, height: 4906 },
-        { path: "assets\\iceland\\(1).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(2).jpg", width: 5184, height: 3456 },
-        { path: "assets\\iceland\\(3).jpg", width: 4084, height: 2916 },
-        { path: "assets\\iceland\\(4).jpg", width: 5184, height: 3456 }
+        { path: "assets\\iceland\\(1).jpg", width: 212, height: 300 },
+        { path: "assets\\iceland\\(10).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(11).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(12).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(13).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(14).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(15).jpg", width: 200, height: 300 },
+        { path: "assets\\iceland\\(16).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(17).jpg", width: 200, height: 300 },
+        { path: "assets\\iceland\\(18).jpg", width: 300, height: 200 },
+        { path: "assets\\iceland\\(19).jpg", width: 300, height: 200 },
+        { path: "assets\\iceland\\(2).jpg", width: 200, height: 300 },
+        { path: "assets\\iceland\\(20).jpg", width: 300, height: 200 },
+        { path: "assets\\iceland\\(21).jpg", width: 300, height: 200 },
+        { path: "assets\\iceland\\(3).jpg", width: 200, height: 300 },
+        { path: "assets\\iceland\\(4).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(5).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(6).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(7).jpg", width: 200, height: 300 },
+        { path: "assets\\iceland\\(8).jpg", width: 450, height: 300 },
+        { path: "assets\\iceland\\(9).jpg", width: 450, height: 300 }
       ];
       let rows = [];
       let row = [];
       let currentWidth = 0;
       photos.forEach(photo => {
         row.push(photo);
-        currentWidth += Math.round((300 / photo.height) * photo.width);
+        currentWidth += Math.round((200 / photo.height) * photo.width);
         currentWidth += 10;
         if (currentWidth >= window.innerWidth * 0.8) {
           row.currentWidth = currentWidth;
@@ -82,7 +86,7 @@
           img.draggable = false;
           if (window.innerWidth >= 800) {
             let ratio = window.innerWidth * 0.8 / rowWidth;
-            img.height = 300 * ratio - 10;
+            img.height = 200 * ratio - 5;
           }
           document.getElementById('photos').appendChild(img);
         });
@@ -90,11 +94,11 @@
       var images = document.getElementsByTagName("img");
       for (var i = 1; i < images.length; i++) {
         images[i].addEventListener("click", (e) => {
-            document.getElementById("page-overlay").style.display = "block";
-            document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src.replace('.jpg', '_big.jpg');
-            document.getElementById("page-overlay").addEventListener("click", function () {
-              document.getElementById("page-overlay").style.display = "none";
-            });
+          document.getElementById("page-overlay").style.display = "block";
+          document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src.replace('.jpg', '_big.jpg');
+          document.getElementById("page-overlay").addEventListener("click", function () {
+            document.getElementById("page-overlay").style.display = "none";
+          });
         });
       }
     });
