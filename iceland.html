@@ -13,14 +13,14 @@
   <script>
     function left() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 1) { number = 17; }
+      if (number == 1) { number = 21; }
       else { number -= 1; }
       document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\iceland\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 17) { number = 1; }
+      if (number == 21) { number = 1; }
       else { number++; }
       document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\iceland\\(" + number + ")_big.jpg";
       event.stopPropagation();
