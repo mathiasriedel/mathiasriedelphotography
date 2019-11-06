@@ -65,7 +65,7 @@
       let currentWidth = 0;
       photos.forEach(photo => {
         row.push(photo);
-        currentWidth += Math.round((220 / photo.height) * photo.width);
+        currentWidth += Math.round((300 / photo.height) * photo.width);
         currentWidth += 10;
         if (currentWidth >= window.innerWidth * 0.8) {
           row.currentWidth = currentWidth;
@@ -82,7 +82,7 @@
           img.draggable = false;
           if (window.innerWidth >= 800) {
             let ratio = window.innerWidth * 0.8 / rowWidth;
-            img.height = 220 * ratio - 5;
+            img.height = 300 * ratio - 10;
           }
           document.getElementById('photos').appendChild(img);
         });
