@@ -13,16 +13,16 @@
   <script>
     function left() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 1) { number = 26; }
+      if (number == 1) { number = 30; }
       else { number -= 1; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\germany\\(" + number + ")_big.jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\favorites\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 26) { number = 1; }
+      if (number == 30) { number = 1; }
       else { number++; }
-      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\germany\\(" + number + ")_big.jpg";
+      document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\favorites\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function myFunction(x) {
@@ -42,32 +42,36 @@
         }
       }
       var photos = [
-        { path: "assets\\germany\\(1).jpg", width: 1000, height: 641 },
-        { path: "assets\\germany\\(2).jpg", width: 703, height: 1000 },
-        { path: "assets\\germany\\(3).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(4).jpg", width: 1000, height: 593 },
-        { path: "assets\\germany\\(5).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(6).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(7).jpg", width: 1000, height: 322 },
-        { path: "assets\\germany\\(8).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(9).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(10).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(11).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(12).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(13).jpg", width: 1000, height: 622 },
-        { path: "assets\\germany\\(14).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(15).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(16).jpg", width: 1000, height: 694 },
-        { path: "assets\\germany\\(17).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(18).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(19).jpg", width: 667, height: 1000 },
-        { path: "assets\\germany\\(20).jpg", width: 1000, height: 590 },
-        { path: "assets\\germany\\(21).jpg", width: 1000, height: 636 },
-        { path: "assets\\germany\\(22).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(23).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(24).jpg", width: 1000, height: 667 },
-        { path: "assets\\germany\\(25).jpg", width: 1000, height: 690 },
-        { path: "assets\\germany\\(26).jpg", width: 1000, height: 720 },
+        { path: "assets\\favorites\\(1).jpg", width: 212, height: 300 },
+        { path: "assets\\favorites\\(2).jpg", width: 200, height: 300 },
+        { path: "assets\\favorites\\(3).jpg", width: 200, height: 300 },
+        { path: "assets\\favorites\\(4).jpg", width: 450, height: 300 },
+        { path: "assets\\favorites\\(5).jpg", width: 450, height: 300 },
+        { path: "assets\\favorites\\(6).jpg", width: 135, height: 200 },
+        { path: "assets\\favorites\\(7).jpg", width: 159, height: 200 },
+        { path: "assets\\favorites\\(8).jpg", width: 133, height: 200 },
+        { path: "assets\\favorites\\(9).jpg", width: 198, height: 200 },
+        { path: "assets\\favorites\\(10).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(11).jpg", width: 136, height: 200 },
+        { path: "assets\\favorites\\(12).jpg", width: 133, height: 200 },
+        { path: "assets\\favorites\\(13).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(14).jpg", width: 141, height: 200 },
+        { path: "assets\\favorites\\(15).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(16).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(17).jpg", width: 369, height: 200 },
+        { path: "assets\\favorites\\(18).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(19).jpg", width: 403, height: 200 },
+        { path: "assets\\favorites\\(20).jpg", width: 339, height: 200 },
+        { path: "assets\\favorites\\(21).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(22).jpg", width: 133, height: 200 },
+        { path: "assets\\favorites\\(23).jpg", width: 135, height: 200 },
+        { path: "assets\\favorites\\(24).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(25).jpg", width: 133, height: 200 },
+        { path: "assets\\favorites\\(26).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(27).jpg", width: 311, height: 200 },
+        { path: "assets\\favorites\\(28).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(29).jpg", width: 300, height: 200 },
+        { path: "assets\\favorites\\(30).jpg", width: 300, height: 200 }
       ];
       let rows = [];
       let row = [];
@@ -76,7 +80,6 @@
         row.push(photo);
         currentWidth += Math.round((200 / photo.height) * photo.width);
         currentWidth += 10;
-        console.log(photo.path);
         if (currentWidth >= window.innerWidth * 0.8) {
           row.currentWidth = currentWidth;
           rows.push(row);
@@ -131,8 +134,8 @@
       <ul>
         <li><a href="austria.html">Austria</a></li>
         <li><a href="canada.html">Canada</a></li>
-        <li><a href="favorites.html">Favorites 2018-19</a></li>
-        <li><a href="#" style="color: black; font-style: italic;">Germany</a></li>
+        <li><a href="#" style="color: black; font-style: italic;">Favorites 2018-19</a></li>
+        <li><a href="germany.html">Germany</a></li>
         <li><a href="iceland.html">Iceland</a></li>
         <li><a href="madeira.html">Madeira</a></li>
       </ul>
