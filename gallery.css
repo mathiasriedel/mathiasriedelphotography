@@ -211,7 +211,7 @@ footer a {
 
     .close {
         z-index: 999;
-        right: 20px;
+        left: 20px;
         top: 20px;
     }
     
@@ -221,7 +221,7 @@ footer a {
         padding: 20px;
         position: fixed;
         right: 0;
-        z-index: 500;
+        z-index: 999;
     }
       
     .bar1, .bar2, .bar3 {
