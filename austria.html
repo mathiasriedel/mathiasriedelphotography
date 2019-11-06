@@ -98,13 +98,11 @@
       var images = document.getElementsByTagName("img");
       for (var i = 1; i < images.length; i++) {
         images[i].addEventListener("click", (e) => {
-          if (window.innerWidth > 800) {
             document.getElementById("page-overlay").style.display = "block";
             document.getElementById("page-overlay").getElementsByTagName("img")[0].src = e.target.src.replace('.jpg', '_big.jpg');
             document.getElementById("page-overlay").addEventListener("click", function () {
               document.getElementById("page-overlay").style.display = "none";
             });
-          }
         });
       }
     });
