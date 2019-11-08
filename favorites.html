@@ -13,14 +13,14 @@
   <script>
     function left() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 1) { number = 33; }
+      if (number == 1) { number = 32; }
       else { number -= 1; }
       document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\favorites\\(" + number + ")_big.jpg";
       event.stopPropagation();
     }
     function right() {
       let number = document.getElementById("page-overlay").getElementsByTagName("img")[0].src.match(/\d+/)[0];
-      if (number == 33) { number = 1; }
+      if (number == 32) { number = 1; }
       else { number++; }
       document.getElementById("page-overlay").getElementsByTagName("img")[0].src = "assets\\favorites\\(" + number + ")_big.jpg";
       event.stopPropagation();
@@ -73,8 +73,7 @@
         { path: "assets\\favorites\\(29).jpg", width: 300, height: 200 },
         { path: "assets\\favorites\\(30).jpg", width: 300, height: 200 },
         { path: "assets\\favorites\\(31).jpg", width: 450, height: 300 },
-        { path: "assets\\favorites\\(32).jpg", width: 200, height: 300 },
-        { path: "assets\\favorites\\(33).jpg", width: 300, height: 200 }
+        { path: "assets\\favorites\\(32).jpg", width: 200, height: 300 }
       ];
       let rows = [];
       let row = [];
